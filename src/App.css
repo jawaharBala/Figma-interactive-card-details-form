@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.left-surface {
+  width: 483px;
+  height: 900px;
+  background: #21092f;
+  overflow: hidden;
+  position: relative;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mask2{
+  width: 483px;
+  height: 900px;
+  position: absolute;
+  background: var(--Deep-Violet, #21092F);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.oval1{
+  width: 248px;
+  height: 657px;
+  top: -163px;
+  left: 307.53px;
+  transform-origin: 0 0;
+  transform: rotate(45deg);
+  opacity: 0.15;
+  background: #D53AFF;
+  filter: blur(67.95704650878906px);
+  position: absolute;
+  border-radius: 41.0625rem
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.oval2 {
+  width: 248px;
+  height: 657px;
+  top: -116px;
+  left: 458.53px;
+  transform-origin: 0 0;
+  transform: rotate(45deg);
+  border-radius:657px;
+  opacity: 0.15;
+  background: #ff834a;
+  filter: blur(67.95704650878906px);
+  position: absolute;
+  
 }
+.oval3 {
+  width: 248px;
+  height: 657px;
+  top: 120.53px;
+  left: 243.57px;
+  transform-origin: 0 0;
+  transform: rotate(45deg);
+  border-radius: 657px;
+  opacity: 0.15;
+  background: #47a2ff;
+  filter: blur(67.95704650878906px);
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  position: absolute;
 }

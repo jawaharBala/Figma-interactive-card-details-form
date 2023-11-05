@@ -1,0 +1,48 @@
+.form-layout {
+  width: 23.8125rem;
+  height: 22rem;
+}
+.text-styles {
+  color: var(---deep--violet, #21092f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: -space -grotesk;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+.placeholderTextStyle {
+  color: var(--Deep-Violet, #21092f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Space Grotesk;
+  font-size: 1.125rem;
+  font-size: normal;
+  font-weight: 500;
+  line-height: normal;
+  opacity: 0.5;
+}
+.input {
+  width: 23.8125rem;
+  height: 2.8125rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Light-Grey, #dfdee0);
+  background: var(--White, #fff);
+  &:focus {
+    border-color: var(--Gradient, #6348fe);
+  }
+}
+input {
+  width: 23.8125rem;
+  height: 2.8125rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Light-Grey, #dfdee0);
+  background: var(--White, #fff);
+  &:focus {
+    border-color: var(--Gradient, #6348fe);
+  }
+}
+input:focus {
+  border-color: var(--Gradient, #6348fe);
+}
