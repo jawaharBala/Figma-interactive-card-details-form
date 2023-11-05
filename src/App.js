@@ -1,9 +1,13 @@
+import { useMediaQuery } from "@mui/material";
 import "./App.css";
 import CreditCardBack from "./components/CreditCardBack";
 import CreditCardForm from "./components/CreditCardForm";
 import CreditCardFront from "./components/CreditCardFront";
 
 function App() {
+  var w = window.innerWidth;
+var h = window.innerHeight;
+   console.log(w,h)
   return (
     <div>
       <div className="left-surface">
