@@ -1,10 +1,11 @@
 html {
-  font-size: calc(100vw /90);
+  font-size: calc(100vw / 95);
+ height:100vh
 }
 
-@media screen and (min-width: 50rem){ 
-  
+@media screen and (min-width: 50rem) {
 }
+
 .left-surface {
   width: 30.1875rem;
   height: 56.25rem;
@@ -12,24 +13,24 @@ html {
   overflow: hidden;
   position: relative;
 }
-.mask2{
+.mask2 {
   width: 30.1875rem;
   height: 56.25rem;
   position: absolute;
-  background: var(--Deep-Violet, #21092F);
+  background: var(--Deep-Violet, #21092f);
 }
-.oval1{
+.oval1 {
   width: 15.5rem;
   height: 41.0625rem;
   top: -10.1875rem;
   left: 19.220625rem;
   transform-origin: 0 0;
   transform: rotate(45deg);
-  opacity: 0.15;
-  background: #D53AFF;
+  opacity: 0.5;
+  background: #d53aff;
   filter: blur(67.95704650878906px);
   position: absolute;
-  border-radius: 41.0625rem
+  border-radius: 41.0625rem;
 }
 .oval2 {
   width: 15.5rem;
@@ -38,12 +39,11 @@ html {
   left: 28.658125rem;
   transform-origin: 0 0;
   transform: rotate(45deg);
-  border-radius:41.0625rem;
-  opacity: 0.15;
+  border-radius: 41.0625rem;
+  opacity: 0.5;
   background: #ff834a;
   filter: blur(67.95704650878906px);
   position: absolute;
-  
 }
 .oval3 {
   width: 15.5rem;
@@ -53,7 +53,7 @@ html {
   transform-origin: 0 0;
   transform: rotate(45deg);
   border-radius: 41.0625rem;
-  opacity: 0.15;
+  opacity: 0.5;
   background: #47a2ff;
   filter: blur(67.95704650878906px);
 

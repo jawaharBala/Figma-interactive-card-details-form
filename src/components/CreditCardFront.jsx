@@ -1,4 +1,5 @@
-const CreditCardFront = () => {
+const CreditCardFront = ({ formData }) => {
+  const {  cardNumber, month, year,name} = formData;
   const Circlessvg = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,20 +24,20 @@ const CreditCardFront = () => {
           position: "relative",
           overflow: "hidden",
           background: "linear-gradient(164deg, #6348FE  4.74%, #610595 88.83%)",
-          borderRadius: '0.625rem',
+          borderRadius: "0.625rem",
           flexShrink: 0,
         }}
       >
         <div
           className="OvalCopy2"
           style={{
-            width: '8.1875rem',
-            height: '22.6875rem',
+            width: "8.1875rem",
+            height: "22.6875rem",
             transform: "rotate(45deg)",
             transformOrigin: "0 0",
             opacity: 0.85,
             background: "#D53AFF",
-            borderRadius: '',
+            borderRadius: "",
             filter: "blur(40px)",
             top: "-7.0625rem",
             left: "22.125rem",
@@ -46,10 +47,10 @@ const CreditCardFront = () => {
 
         <div
           style={{
-            width: '8.1875rem',
-            height: '22.6875rem',
+            width: "8.1875rem",
+            height: "22.6875rem",
             transform: "rotate(45deg)",
-            borderRadius:'22.6875rem',
+            borderRadius: "22.6875rem",
             filter: "blur(40px)",
             opacity: 0.85,
             background: "#FF834A",
@@ -62,10 +63,10 @@ const CreditCardFront = () => {
 
         <div
           style={{
-            width: '8.1875rem',
-            height: '22.6875rem',
+            width: "8.1875rem",
+            height: "22.6875rem",
             transform: "rotate(45deg)",
-            borderRadius: '22.6875rem',
+            borderRadius: "22.6875rem",
             filter: "blur(40px)",
             opacity: 0.85,
             background: "#47A2FF",
@@ -77,11 +78,11 @@ const CreditCardFront = () => {
         />
         <div
           style={{
-            width: '5.25rem',
-            height: '2.9375rem',
+            width: "5.25rem",
+            height: "2.9375rem",
             position: "absolute",
-            top: '1.75rem',
-            left: '2rem',
+            top: "1.75rem",
+            left: "2rem",
           }}
         >
           <Circlessvg />
@@ -94,12 +95,12 @@ const CreditCardFront = () => {
             color: "white",
             fontSize: "1.75rem",
             fontFamily: "Space Grotesk",
-            fontWeight: '31.25rem',
+            fontWeight: "31.25rem",
             letterSpacing: "0.21388rem",
             overflowWrap: "break-word",
           }}
         >
-          0000 0000 0000 0000
+          {cardNumber || "0000 0000 0000 0000"}
         </div>
         <div
           style={{
@@ -111,13 +112,13 @@ const CreditCardFront = () => {
             fontFamily: "Space Grotesk",
             fontSize: "0.875rem",
             fontStyle: "normal",
-            fontWeight: '31.25rem',
+            fontWeight: "31.25rem",
             lineHeight: "normal",
             letterSpacing: "0.125rem",
             textTransform: "uppercase",
           }}
         >
-          JANE APPLESEED
+          {name || "JANE APPLESEED"}
         </div>
         <div
           style={{
@@ -130,13 +131,13 @@ const CreditCardFront = () => {
             fontFamily: "Space Grotesk",
             fontSize: "0.875rem",
             fontStyle: "normal",
-            fontWeight: '31.25rem',
+            fontWeight: "31.25rem",
             lineHeight: "normal",
             letterSpacing: "0.125rem",
             textTransform: "uppercase",
           }}
         >
-          00/00
+          {month || "00"}/{year || '00'}
         </div>
       </div>
     </>

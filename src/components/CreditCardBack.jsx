@@ -1,94 +1,48 @@
-const CreditCardBack = () => {
+const CreditCardBack = ({cvc}) => {
   const CreditCardBackRectsvg = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="11.625rem"
-      height="1.625rem"
+      height="1.825rem"
       viewBox="0 0 11.625rem 1.625rem"
       fill="none"
     >
-      <rect width="7.1875rem" height="0.25rem" rx="0.125rem" fill="#ADB5BE" />
+      <rect width="115" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="121" width="22" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="149" width="22" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="177" width="9" height="4" rx="2" fill="#ADB5BE" />
       <rect
-        x="7.5625rem"
-        width="1.375rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        x="9.3125rem"
-        width="1.375rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        x="11.0625rem"
-        width="0.5625rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        width="7.1875rem"
-        height="0.25rem"
-        rx="0.125rem"
+        width="115"
+        height="4"
+        rx="2"
         transform="matrix(-1 0 0 1 186 22)"
         fill="#ADB5BE"
       />
       <rect
-        width="1.375rem"
-        height="0.25rem"
-        rx="0.125rem"
+        width="22"
+        height="4"
+        rx="2"
         transform="matrix(-1 0 0 1 65 22)"
         fill="#ADB5BE"
       />
       <rect
-        width="1.375rem"
-        height="0.25rem"
-        rx="0.125rem"
+        width="22"
+        height="4"
+        rx="2"
         transform="matrix(-1 0 0 1 37 22)"
         fill="#ADB5BE"
       />
       <rect
-        width="0.5625rem"
-        height="0.25rem"
-        rx="0.125rem"
+        width="9"
+        height="4"
+        rx="2"
         transform="matrix(-1 0 0 1 9 22)"
         fill="#ADB5BE"
       />
-      <rect
-        x="2.625rem"
-        y="0.6875rem"
-        width="3.75rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        x="0.875rem"
-        y="0.6875rem"
-        width="1.375rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        x="6.75rem"
-        y="0.6875rem"
-        width="2.875rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
-      <rect
-        x="10rem"
-        y="0.6875rem"
-        width="0.5625rem"
-        height="0.25rem"
-        rx="0.125rem"
-        fill="#ADB5BE"
-      />
+      <rect x="42" y="11" width="60" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="14" y="11" width="22" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="108" y="11" width="46" height="4" rx="2" fill="#ADB5BE" />
+      <rect x="160" y="11" width="9" height="4" rx="2" fill="#ADB5BE" />
     </svg>
   );
   return (
@@ -149,7 +103,7 @@ const CreditCardBack = () => {
             left: "22.38rem",
           }}
         >
-          000
+         {  cvc || '000'}
         </div>
       </div>
     </>

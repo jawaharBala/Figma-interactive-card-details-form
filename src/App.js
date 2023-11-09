@@ -1,13 +1,12 @@
-import { useMediaQuery } from "@mui/material";
+import { useState } from "react";
 import "./App.css";
 import CreditCardBack from "./components/CreditCardBack";
 import CreditCardForm from "./components/CreditCardForm";
 import CreditCardFront from "./components/CreditCardFront";
 
 function App() {
-  var w = window.innerWidth;
-var h = window.innerHeight;
-   console.log(w,h)
+  const [formData, setFormData] = useState({});
+
   return (
     <div>
       <div className="left-surface">
@@ -16,14 +15,23 @@ var h = window.innerHeight;
         <div className="oval2" />
         <div className="oval3" />
       </div>
-      <div style={{ position: "absolute", top: "11.69rem", left: "10.25rem" }}>
-        <CreditCardFront />
+      <div
+      
+        style={{ position: "absolute", top: "11.69rem", left: "10.25rem" }}
+      >
+        <CreditCardFront   formData={formData} />
       </div>
-      <div style={{ position: "absolute", top: "29.3125rem", left: "16.125rem" }}>
-        <CreditCardBack/>
+      <div
+        style={{ position: "absolute", top: "29.3125rem", left: "16.125rem" }}
+      >
+        <CreditCardBack cvc ={formData.cvc} />
       </div>
-      <div style={{ position: "absolute", top: "17.9rem", left: "52rem" }}>
-        <CreditCardForm />
+      <div
+        
+        style={{ position: "absolute", top: "17.9rem", left: "52rem" }}
+      >
+        <CreditCardForm formData={formData}
+        setFormData={setFormData} />
       </div>
     </div>
   );
