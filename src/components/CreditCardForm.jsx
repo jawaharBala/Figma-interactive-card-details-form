@@ -1,20 +1,18 @@
 import "./CreditCardForm.css";
 
-const CreditCardForm = ({formData,setFormData}) => {
-const handleFormDataChange = (e) => {
+const CreditCardForm = ({ formData, setFormData }) => {
+  const handleFormDataChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const formatNumber = (number) => {const formattedCardNumber =number?.trim().split("").map((e,i)=>{
-    console.log(number,e,i)
-    if((i+1)%4 === 0){
-      return e + " "
-    }else return e
-  }).join("");
-  setFormData({...formData,cardNumber:formattedCardNumber})
-};
-const handleCreditCardNumber = (e) =>{
-    formatNumber(e.target.value)
-}
+
+  const handleCreditCardNumber = (e) => {
+    e.target.value = e.target.value
+      .replace(/\s/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim()
+      .slice(0, 19);
+    setFormData({ ...formData, cardNumber: e.target.value });
+  };
   return (
     <>
       <form className="form-layout">
@@ -28,17 +26,15 @@ const handleCreditCardNumber = (e) =>{
           onChange={handleFormDataChange}
           required
         />
-        
+
         <div className="text-styles card-number">Card Number</div>
         <input
           className="card-number-input"
           id="card-number"
           name="cardNumber"
-         // type="number"
           placeholder="e.g. 1234 5678 9123 0000"
           onChange={handleCreditCardNumber}
-          value={formData?.cardNumber || ""}
-          maxLength={16}
+          maxLength={19}
           required
         />
         <div className="text-styles exp-date">Exp. Date (MM/YY)</div>

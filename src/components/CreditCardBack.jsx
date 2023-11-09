@@ -4,7 +4,7 @@ const CreditCardBack = ({cvc}) => {
       xmlns="http://www.w3.org/2000/svg"
       width="11.625rem"
       height="1.825rem"
-      viewBox="0 0 11.625rem 1.625rem"
+      viewBox="0 0 186 26"
       fill="none"
     >
       <rect width="115" height="4" rx="2" fill="#ADB5BE" />

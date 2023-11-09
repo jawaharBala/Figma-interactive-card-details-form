@@ -1,21 +1,20 @@
+@import url("https://fonts.cdnfonts.com/css/space-grotesk");
+
 html {
-  font-size: calc(100vw / 95);
- height:100vh
+  font-size: 1vw;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
 }
-
-@media screen and (min-width: 50rem) {
-}
-
 .left-surface {
   width: 30.1875rem;
-  height: 56.25rem;
+  min-height: 100vh;
   background: #21092f;
   overflow: hidden;
   position: relative;
 }
 .mask2 {
   width: 30.1875rem;
-  height: 56.25rem;
+
   position: absolute;
   background: var(--Deep-Violet, #21092f);
 }

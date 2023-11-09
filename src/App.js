@@ -15,23 +15,16 @@ function App() {
         <div className="oval2" />
         <div className="oval3" />
       </div>
-      <div
-      
-        style={{ position: "absolute", top: "11.69rem", left: "10.25rem" }}
-      >
-        <CreditCardFront   formData={formData} />
+      <div style={{ position: "absolute", top: "11.69rem", left: "10.25rem" }}>
+        <CreditCardFront formData={formData} />
       </div>
       <div
         style={{ position: "absolute", top: "29.3125rem", left: "16.125rem" }}
       >
-        <CreditCardBack cvc ={formData.cvc} />
+        <CreditCardBack cvc={formData.cvc} />
       </div>
-      <div
-        
-        style={{ position: "absolute", top: "17.9rem", left: "52rem" }}
-      >
-        <CreditCardForm formData={formData}
-        setFormData={setFormData} />
+      <div style={{ position: "absolute", top: "17.9rem", left: "52rem" }}>
+        <CreditCardForm formData={formData} setFormData={setFormData} />
       </div>
     </div>
   );
