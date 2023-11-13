@@ -3,8 +3,8 @@ const CreditCardFront = ({ formData }) => {
   const Circlessvg = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="84"
-      height="47"
+      width="5.25rem"
+      height="4.9375rem"
       viewBox="0 0 84 47"
       fill="none"
     >

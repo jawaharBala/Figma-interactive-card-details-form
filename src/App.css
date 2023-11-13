@@ -2,8 +2,11 @@
 
 html {
   font-size: 1vw;
-  min-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
+}
+body{
+  box-sizing: border-box;
+  margin: 0;
 }
 .left-surface {
   width: 30.1875rem;
@@ -14,7 +17,6 @@ html {
 }
 .mask2 {
   width: 30.1875rem;
-
   position: absolute;
   background: var(--Deep-Violet, #21092f);
 }
