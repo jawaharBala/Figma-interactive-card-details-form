@@ -3,8 +3,9 @@
 html {
   font-size: 1vw;
   font-family: "Space Grotesk", sans-serif;
+  min-height: 100vh;
 }
-body{
+body {
   box-sizing: border-box;
   margin: 0;
 }
@@ -57,6 +58,5 @@ body{
   opacity: 0.5;
   background: #47a2ff;
   filter: blur(67.95704650878906px);
-
   position: absolute;
 }

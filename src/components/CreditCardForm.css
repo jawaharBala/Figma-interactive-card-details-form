@@ -95,6 +95,7 @@ input {
   border-radius: 0.5rem;
   border: 1px solid var(--Light-Grey, #dfdee0);
   background: var(--White, #fff);
+  padding-left: 1rem;
 }
 input::placeholder {
   color: var(--Deep-Violet, #21092f);
@@ -105,7 +106,6 @@ input::placeholder {
   font-weight: 500;
   line-height: normal;
   opacity: 0.25;
-  padding-left: 1rem;
 }
 input:focus {
   border-radius: 0.5rem;

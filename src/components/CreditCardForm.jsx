@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./CreditCardForm.css";
 
-const CreditCardForm = ({ formData, setFormData }) => {
-  const [fieldChecked, setFieldChecked] = useState({});
-  const { cardNumber, month, year, name, cvc } = fieldChecked;
+const CreditCardForm = ({ formData, setFormData, setFormComplete }) => {
+  const [fieldTouched, setFieldTouched] = useState({});
+  const {
+    cardNumberTouched,
+    monthTouched,
+    yearTouched,
+    nameTouched,
+    cvcTouched,
+  } = fieldTouched;
   const handleFormDataChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleFieldChecked = (e) =>
-    setFieldChecked({ ...fieldChecked, [e.target.name]: true });
+  const handleFieldTouched = (e) => {
+    setFieldTouched({ ...fieldTouched, [e.target.name + "Touched"]: true });
+    validateForm();
+  };
 
   const handleCreditCardNumber = (e) => {
     e.target.value = e.target.value
@@ -18,7 +26,47 @@ const CreditCardForm = ({ formData, setFormData }) => {
       .slice(0, 19);
     setFormData({ ...formData, cardNumber: e.target.value });
   };
-
+  const nameInputFormatValidation =
+    formData?.name?.length > 0 && !/^[a-zA-Z -]+$/.test(formData?.name);
+  const nameInputBlankValidation = nameTouched && !formData.name;
+  const cardNumberInputFormatValidation =
+    formData?.cardNumber?.length > 0 &&
+    !/^[0-9 ]+$/.test(+formData?.cardNumber?.replace(/\s/g, ""));
+  const cardNumberInputBlankValidation =
+    cardNumberTouched && !formData.cardNumber;
+  const monthInputValidation = monthTouched && !formData.month;
+  const yearInputValidation = yearTouched && !formData.year;
+  const cvcInputValidation = cvcTouched && !formData.cvc;
+  const validateForm = () => {
+    let formValid = false;
+    console.log(
+      nameInputBlankValidation,
+      cardNumberInputBlankValidation,
+      monthInputValidation,
+      yearInputValidation,
+      nameInputFormatValidation,
+      cardNumberInputFormatValidation
+    );
+    if (!nameInputFormatValidation && !cardNumberInputFormatValidation) {
+      if (
+        !(
+          nameInputBlankValidation &&
+          cardNumberInputBlankValidation &&
+          monthInputValidation &&
+          yearInputValidation &&
+          cvcInputValidation
+        )
+      ) {
+        formValid = true;
+      }
+    }
+    setFormComplete(formValid);
+    console.log(formValid);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validateForm();
+  };
   return (
     <>
       <form className="form-layout">
@@ -26,7 +74,7 @@ const CreditCardForm = ({ formData, setFormData }) => {
           cardholder name
           <input
             className={
-              !/^[a-zA-Z -]+$/.test(formData?.name) || (name && !formData.name)
+              nameInputFormatValidation || nameInputBlankValidation
                 ? "input-error cardholder-name-input"
                 : "cardholder-name-input"
             }
@@ -35,13 +83,13 @@ const CreditCardForm = ({ formData, setFormData }) => {
             type="text"
             placeholder="e.g. Jane Appleseed"
             onChange={handleFormDataChange}
-            onBlur={handleFieldChecked}
+            onBlur={handleFieldTouched}
             required
           />
-          {!/^[a-zA-Z -]+$/.test(formData?.name) && (
+          {nameInputFormatValidation && (
             <p className="error-info">wrong input, alphabets only</p>
           )}
-          {!formData.name && name && (
+          {nameInputBlankValidation && (
             <p className="error-info">Can’t be blank</p>
           )}
         </label>
@@ -49,10 +97,7 @@ const CreditCardForm = ({ formData, setFormData }) => {
           card number
           <input
             className={
-              (cardNumber && !formData.cardNumber) ||
-              (cardNumber &&
-                formData?.cardNumber &&
-                !/^[0-9 ]+$/.test(+formData?.cardNumber?.replace(/\s/g, "")))
+              cardNumberInputBlankValidation || cardNumberInputFormatValidation
                 ? "input-error card-number-input"
                 : "card-number-input"
             }
@@ -60,16 +105,14 @@ const CreditCardForm = ({ formData, setFormData }) => {
             name="cardNumber"
             placeholder="e.g. 1234 5678 9123 0000"
             onChange={handleCreditCardNumber}
-            onBlur={handleFieldChecked}
+            onBlur={handleFieldTouched}
             maxLength={19}
             required
           />
-          {cardNumber &&
-            formData?.cardNumber &&
-            !/^[0-9 ]+$/.test(+formData?.cardNumber?.replace(/\s/g, "")) && (
-              <p className="error-info">wrong format, numbers only</p>
-            )}
-          {cardNumber && !formData.cardNumber && (
+          {cardNumberInputFormatValidation && (
+            <p className="error-info">wrong format, numbers only</p>
+          )}
+          {cardNumberInputBlankValidation && (
             <p className="error-info">Can’t be blank</p>
           )}
         </label>
@@ -81,13 +124,11 @@ const CreditCardForm = ({ formData, setFormData }) => {
                 type="text"
                 placeholder="MM"
                 className={
-                  month && !formData.month
-                    ? "input-error mm-input"
-                    : " mm-input"
+                  monthInputValidation ? "input-error mm-input" : " mm-input"
                 }
                 name="month"
                 onChange={handleFormDataChange}
-                onBlur={handleFieldChecked}
+                onBlur={handleFieldTouched}
                 maxLength={2}
                 min={1}
                 max={12}
@@ -97,16 +138,16 @@ const CreditCardForm = ({ formData, setFormData }) => {
                 type="text"
                 placeholder="YY"
                 className={
-                  year && !formData.year ? "input-error yy-input" : " yy-input"
+                  yearInputValidation ? "input-error yy-input" : " yy-input"
                 }
                 name="year"
                 onChange={handleFormDataChange}
-                onBlur={handleFieldChecked}
+                onBlur={handleFieldTouched}
                 maxLength={2}
                 required
               />
             </div>
-            {((month && !formData.month) || (year && !formData.year)) && (
+            {(monthInputValidation || yearInputValidation) && (
               <p className="error-info">Can’t be blank</p>
             )}
           </label>
@@ -116,20 +157,20 @@ const CreditCardForm = ({ formData, setFormData }) => {
               type="text"
               placeholder="e.g. 123"
               className={
-                cvc && !formData.cvc ? "input-error cvc-input" : " cvc-input"
+                cvcInputValidation ? "input-error cvc-input" : " cvc-input"
               }
               name="cvc"
               onChange={handleFormDataChange}
-              onBlur={handleFieldChecked}
+              onBlur={handleFieldTouched}
               maxLength={3}
               required
             />
-            {cvc && !formData.cvc && (
-              <p className="error-info">Can’t be blank</p>
-            )}
+            {cvcInputValidation && <p className="error-info">Can’t be blank</p>}
           </label>
         </div>
-        <button className="confirm-button">Confirm</button>
+        <button onClick={handleSubmit} className="confirm-button">
+          Confirm
+        </button>
       </form>
     </>
   );

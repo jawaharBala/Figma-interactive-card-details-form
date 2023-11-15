@@ -3,10 +3,11 @@ import "./App.css";
 import CreditCardBack from "./components/CreditCardBack";
 import CreditCardForm from "./components/CreditCardForm";
 import CreditCardFront from "./components/CreditCardFront";
+import ThanksCard from "./components/ThanksCard";
 
 function App() {
   const [formData, setFormData] = useState({});
-
+  const [formComplete, setFormComplete] = useState(false);
   return (
     <div>
       <div className="left-surface">
@@ -24,7 +25,15 @@ function App() {
         <CreditCardBack cvc={formData.cvc} />
       </div>
       <div style={{ position: "absolute", top: "17.9rem", left: "52rem" }}>
-        <CreditCardForm formData={formData} setFormData={setFormData} />
+        {formComplete ? (
+          <ThanksCard />
+        ) : (
+          <CreditCardForm
+            formData={formData}
+            setFormData={setFormData}
+            setFormComplete={setFormComplete}
+          />
+        )}
       </div>
     </div>
   );
