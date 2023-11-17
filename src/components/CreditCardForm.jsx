@@ -10,12 +10,12 @@ const CreditCardForm = ({ formData, setFormData, setFormComplete }) => {
     nameTouched,
     cvcTouched,
   } = fieldTouched;
+  const { cardNumber, month, year, name, cvc } = formData;
   const handleFormDataChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleFieldTouched = (e) => {
     setFieldTouched({ ...fieldTouched, [e.target.name + "Touched"]: true });
-    validateForm();
   };
 
   const handleCreditCardNumber = (e) => {
@@ -27,41 +27,37 @@ const CreditCardForm = ({ formData, setFormData, setFormComplete }) => {
     setFormData({ ...formData, cardNumber: e.target.value });
   };
   const nameInputFormatValidation =
-    formData?.name?.length > 0 && !/^[a-zA-Z -]+$/.test(formData?.name);
-  const nameInputBlankValidation = nameTouched && !formData.name;
+    name?.length > 0 && !/^[a-zA-Z -]+$/.test(name);
+  const nameInputBlankValidation = nameTouched && !formData.name?.length > 0;
   const cardNumberInputFormatValidation =
-    formData?.cardNumber?.length > 0 &&
-    !/^[0-9 ]+$/.test(+formData?.cardNumber?.replace(/\s/g, ""));
+    cardNumber?.length > 0 &&
+    !/^[0-9 ]+$/.test(+cardNumber?.replace(/\s/g, ""));
   const cardNumberInputBlankValidation =
-    cardNumberTouched && !formData.cardNumber;
-  const monthInputValidation = monthTouched && !formData.month;
-  const yearInputValidation = yearTouched && !formData.year;
-  const cvcInputValidation = cvcTouched && !formData.cvc;
+    cardNumberTouched && !formData.cardNumber?.length > 0;
+  const monthInputValidation = monthTouched && !formData.month?.length > 0;
+  const yearInputValidation = yearTouched && !formData.year?.length > 0;
+  const cvcInputValidation = cvcTouched && !formData.cvc?.length > 0;
   const validateForm = () => {
     let formValid = false;
-    console.log(
-      nameInputBlankValidation,
-      cardNumberInputBlankValidation,
-      monthInputValidation,
-      yearInputValidation,
-      nameInputFormatValidation,
-      cardNumberInputFormatValidation
-    );
-    if (!nameInputFormatValidation && !cardNumberInputFormatValidation) {
-      if (
-        !(
-          nameInputBlankValidation &&
-          cardNumberInputBlankValidation &&
-          monthInputValidation &&
-          yearInputValidation &&
-          cvcInputValidation
-        )
-      ) {
-        formValid = true;
-      }
+    if (
+      cardNumber?.length > 0 &&
+      month?.length > 0 &&
+      year?.length > 0 &&
+      name?.length > 0 &&
+      cvc &&
+      !(
+        nameInputBlankValidation &&
+        cardNumberInputBlankValidation &&
+        monthInputValidation &&
+        yearInputValidation &&
+        cvcInputValidation &&
+        nameInputFormatValidation &&
+        cardNumberInputFormatValidation
+      )
+    ) {
+      formValid = true;
     }
     setFormComplete(formValid);
-    console.log(formValid);
   };
   const handleSubmit = (e) => {
     e.preventDefault();

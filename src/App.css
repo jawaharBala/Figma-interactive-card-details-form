@@ -1,62 +1,105 @@
 @import url("https://fonts.cdnfonts.com/css/space-grotesk");
 
 html {
-  font-size: 1vw;
+  font-size: 75%;
   font-family: "Space Grotesk", sans-serif;
-  min-height: 100vh;
+
 }
 body {
   box-sizing: border-box;
   margin: 0;
+  min-height: 100vh;
 }
 .left-surface {
-  width: 30.1875rem;
-  min-height: 100vh;
   background: #21092f;
   overflow: hidden;
   position: relative;
 }
 .mask2 {
-  width: 30.1875rem;
   position: absolute;
   background: var(--Deep-Violet, #21092f);
+  width: 100%;
+  min-height: 100%;
+}
+.oval1,
+.oval2,
+.oval3 {
+  min-width: 15.5rem;
+  min-height: 41.0625rem;
+  transform-origin: 0 0;
+  transform: rotate(45deg);
+  position: absolute;
+  opacity: 0.5;
+  border-radius: 41.0625rem;
+  filter: blur(67.95704650878906px);
 }
 .oval1 {
-  width: 15.5rem;
-  height: 41.0625rem;
   top: -10.1875rem;
   left: 19.220625rem;
-  transform-origin: 0 0;
-  transform: rotate(45deg);
-  opacity: 0.5;
   background: #d53aff;
-  filter: blur(67.95704650878906px);
-  position: absolute;
-  border-radius: 41.0625rem;
 }
 .oval2 {
-  width: 15.5rem;
-  height: 41.0625rem;
   top: -7.25rem;
   left: 28.658125rem;
-  transform-origin: 0 0;
-  transform: rotate(45deg);
-  border-radius: 41.0625rem;
-  opacity: 0.5;
   background: #ff834a;
-  filter: blur(67.95704650878906px);
-  position: absolute;
 }
 .oval3 {
-  width: 15.5rem;
-  height: 41.0625rem;
   top: 7.533125rem;
   left: 15.223125rem;
-  transform-origin: 0 0;
-  transform: rotate(45deg);
-  border-radius: 41.0625rem;
-  opacity: 0.5;
   background: #47a2ff;
-  filter: blur(67.95704650878906px);
-  position: absolute;
+}
+
+@media only screen and (max-width: 750px) {
+  .left-surface {
+    height: 15rem;
+    width: 100%;
+  }
+  .oval2 {
+    width: 14.125rem;
+    height: 16.75rem;
+    top: -71px;
+    left: 134px;
+  }
+  .cardFrontDiv {
+    position: absolute;
+    top: 18%;
+    left: 4.3%;
+    z-index: 1;
+  }
+  .cardBackDiv {
+    position: absolute;
+    top: 2rem;
+    right: 4.3%;
+  }
+  .formDiv {
+    position: absolute;
+    padding:0 1.5rem 0 1.5rem;
+    width:100%;
+    height: 55%;
+    bottom: 0;
+  }
+}
+@media only screen and (min-width: 751px) {
+  .left-surface,.mask2 {
+    width: 30.1875rem;
+    min-height: 100vh;
+  }
+  .cardFrontDiv {
+    position: absolute;
+    top: 11.69rem;
+    left: 10.25rem;
+  }
+  .cardBackDiv {
+    position: absolute;
+    top: 29.3125rem;
+    left: 16.125rem;
+  }
+  .formDiv {
+    position: absolute;
+    top: 17.9rem;
+    left: 52rem;
+    width: 30rem;
+    height: 55%;
+    margin: auto;
+  }
 }

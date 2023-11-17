@@ -19,7 +19,7 @@ const CreditCardFront = ({ formData }) => {
     <>
       <div
         style={{
-          width: "27.9375rem",
+          minWidth: "27.9375rem",
           height: "15.3125rem",
           position: "relative",
           overflow: "hidden",

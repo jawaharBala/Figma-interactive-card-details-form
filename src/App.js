@@ -9,22 +9,20 @@ function App() {
   const [formData, setFormData] = useState({});
   const [formComplete, setFormComplete] = useState(false);
   return (
-    <div>
+    <>
       <div className="left-surface">
         <div className="mask2" />
         <div className="oval1" />
         <div className="oval2" />
         <div className="oval3" />
       </div>
-      <div style={{ position: "absolute", top: "11.69rem", left: "10.25rem" }}>
+      <div className="cardFrontDiv">
         <CreditCardFront formData={formData} />
       </div>
-      <div
-        style={{ position: "absolute", top: "29.3125rem", left: "16.125rem" }}
-      >
+      <div className="cardBackDiv">
         <CreditCardBack cvc={formData.cvc} />
       </div>
-      <div style={{ position: "absolute", top: "17.9rem", left: "52rem" }}>
+      <div className="formDiv">
         {formComplete ? (
           <ThanksCard />
         ) : (
@@ -35,7 +33,7 @@ function App() {
           />
         )}
       </div>
-    </div>
+    </>
   );
 }
 

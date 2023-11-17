@@ -1,16 +1,16 @@
-*{
+* {
   box-sizing: border-box;
 }
 .form-layout {
-  width: 23.8125rem;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 1.63rem;
-  
 }
-.form-layout p{
-margin: 0;
+.form-layout p {
+  margin: 0;
 }
 label {
   color: var(--Deep-Violet, #21092f);
@@ -35,13 +35,14 @@ label {
   flex-direction: row;
   gap: 1.25rem;
 }
-.mmyy-cvc-div input{
-  margin:0
+.mmyy-cvc-div input {
+  margin: 0;
 }
 .mmyy-div {
   display: flex;
   flex-direction: column;
   gap: 0.56rem;
+  width: 50%;
 }
 .mmyy-div label {
   margin: 0;
@@ -50,20 +51,21 @@ label {
 .mmyy-input {
   display: flex;
   flex-direction: row;
-  gap: 0.62rem;
+  gap: 5%;
 }
 
 .mm-input,
 .yy-input {
-  width: 5rem;
+  width: 45%;
 }
 .cvc-label {
   display: flex;
   flex-direction: column;
   gap: 0.56rem;
+  width:50%
 }
-.cvc-label input{
-  width:11.9375rem
+.cvc-label input {
+  width: 100%;
 }
 .error-info {
   color: var(--Red, #ff5050);
@@ -73,9 +75,8 @@ label {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  }
+}
 .confirm-button {
-
   color: var(--White, #fff);
   font-feature-settings: "clig" off, "liga" off;
   font-family: Space Grotesk;
@@ -113,9 +114,9 @@ input:focus {
   background: var(--White, #fff);
   outline: none;
 }
-.input-error{
+.input-error {
   border-color: var(--Red, #ff5050);
 }
-.input-error:focus{
+.input-error:focus {
   border: 1px solid var(--Gradient, #ff5050);
 }
